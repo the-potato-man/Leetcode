@@ -7,19 +7,17 @@ class Solution:
         :rtype: int
         """
         tokens = tokenizeWithParens(s)
-        # print(tokens)
-        stack = []
+        stackWithOp = []
         for t in tokens:
             if t.isdigit():
-                stack.append(int(t))
+                stackWithOp.append(int(t))
             elif t in '(+-':
-                stack.append(t)
+                stackWithOp.append(t)
             elif t == ')':
-                # print(stack)
                 subStack = []
-                while stack[-1] != '(':
-                    num = stack.pop()
-                    op = stack.pop()
+                while True:
+                    num = stackWithOp.pop()
+                    op = stackWithOp.pop()
                     if op == '+':
                         subStack.append(num)
                     elif op == '-':
@@ -27,23 +25,18 @@ class Solution:
                     elif op == '(':
                         subStack.append(num)
                         break
-                # print(sum(subStack))
-                stack.append(sum(subStack))
-        subStack = []
-        while stack:
-            num = stack.pop()
-            op = '+'
-            if stack:
-                op = stack.pop()
-            if op == '+':
-                subStack.append(num)
-            elif op == '-':
-                subStack.append(-1 * num)
-            elif op == '(':
-                subStack.append(num)
-                break
+                stackWithOp.append(sum(subStack))
 
-        return sum(subStack)
+        stack = [stackWithOp[0]]
+        for i in range(1, len(stackWithOp), 2):
+            op = stackWithOp[i]
+            num = stackWithOp[i+1]
+            if op == '+':
+                stack.append(num)
+            elif op == '-':
+                stack.append(-1 * num)
+
+        return sum(stack)
 
 def tokenizeWithParens(s):
     token_list = []
@@ -55,7 +48,7 @@ def tokenizeWithParens(s):
                 partial_num = []
             token_list.append(c)
         elif c.isdigit():
-            partial_num += c
+            partial_num.append(c)
     if partial_num:
         token_list.append(''.join(partial_num))
     return token_list
