@@ -10,7 +10,7 @@ class Trie(object):
         """
         Initialize your data structure here.
         """
-        self.dummy = Node()
+        self.head = Node()
 
     def insert(self, word):
         """
@@ -18,7 +18,7 @@ class Trie(object):
         :type word: str
         :rtype: void
         """
-        node = self.dummy
+        node = self.head
         for char in word:
             if char not in node.dic:
                 node.dic[char] = Node(char)               
@@ -31,7 +31,7 @@ class Trie(object):
         :type word: str
         :rtype: bool
         """
-        node = self.dummy
+        node = self.head
         for char in word:
             if char not in node.dic:
                 return False               
@@ -44,7 +44,7 @@ class Trie(object):
         :type prefix: str
         :rtype: bool
         """
-        node = self.dummy
+        node = self.head
         for char in prefix:
             if char not in node.dic:
                 return False               
