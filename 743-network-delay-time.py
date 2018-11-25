@@ -17,7 +17,7 @@ class Solution:
             graph[u].append((v, weight))
         
         dist = {}
-        heap = [(0,K)]
+        heap = [(0,K)] # starting at node K
         while heap:
             d, node = heapq.heappop(heap)
             if node in dist:
@@ -27,7 +27,7 @@ class Solution:
                 if v not in dist:
                     heapq.heappush(heap, (d + weight, v))
         
-        if len(dist) == N:
+        if len(dist) == N: # ensure there are N total nodes covered
             return max(dist.values())
         else:
             return -1
