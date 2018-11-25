@@ -1,3 +1,5 @@
+import heapq
+
 class Solution:
     def networkDelayTime(self, times, N, K):
         """
