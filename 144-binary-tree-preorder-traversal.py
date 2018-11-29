@@ -22,3 +22,22 @@ class Solution(object):
         sol = []
         helper(root, sol)
         return sol
+
+    def preorderTraversalIterative(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        sol = []
+        stack = [root]
+        
+        while stack:
+            curr = stack.pop()
+            if curr:
+                sol.append(curr.val)
+                if curr.right:
+                    stack.append(curr.right)
+                if curr.left:
+                    stack.append(curr.left)
+        
+        return sol
