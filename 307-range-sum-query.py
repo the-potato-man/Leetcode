@@ -1,12 +1,13 @@
 # https://leetcode.com/problems/range-sum-query-mutable/discuss/75784/python-well-commented-solution-using-segment-trees
 
-class Node():
+class Node:
     def __init__(self, start, end):
         self.start = start
         self.end = end
-        self.total = 0
         self.left = None
         self.right = None
+        self.total = None
+
 
 class NumArray:
 
@@ -14,23 +15,22 @@ class NumArray:
         """
         :type nums: List[int]
         """
-        def createTree(nums, l, r):
-            if l > r:
+        def buildTree(nums, left, right):
+            if left > right:
                 return
-            if l == r:
-                n = Node(l, r)
-                n.total = nums[l]
-                return n
-            
-            mid = (l + r) // 2
-            root = Node(l, r)
-            root.left = createTree(nums, l, mid)
-            root.right = createTree(nums, mid+1, r)
+            if left == right:
+                root = Node(left, right)
+                root.total = nums[left]
+                return root
+
+            mid = (left + right) // 2
+            root = Node(left, right)
+            root.left = buildTree(nums, left, mid)
+            root.right = buildTree(nums, mid+1, right)
             root.total = root.left.total + root.right.total
-            
             return root
-        
-        self.root = createTree(nums, 0, len(nums) - 1)
+
+        self.root = buildTree(nums, 0, len(nums)-1)
 
     def update(self, i, val):
         """
@@ -38,21 +38,21 @@ class NumArray:
         :type val: int
         :rtype: void
         """
-        def updateVal(root, i, val):
-            if root.start == root.end:
-                root.total = val
+        def helper(node, i, val):
+            if node.start == node.end and node.start == i:
+                node.total = val
                 return
-            
-            mid = (root.start + root.end) // 2
-            if i <= mid:
-                updateVal(root.left, i, val)
-            else:
-                updateVal(root.right, i, val)
 
-            root.total = root.left.total + root.right.total
-    
-        return updateVal(self.root, i, val)
-        
+            mid = (node.start + node.end) // 2
+
+            if i <= mid:
+                helper(node.left, i, val)
+            else:
+                helper(node.right, i, val)
+
+            node.total = node.left.total + node.right.total
+
+        helper(self.root, i, val)
 
     def sumRange(self, i, j):
         """
@@ -60,19 +60,20 @@ class NumArray:
         :type j: int
         :rtype: int
         """
-        def rangeSum(root, i, j):
-            if root.start == i and root.end == j:
-                return root.total
-            
-            mid = (root.start + root.end) // 2
+        def helper(node, i, j):
+            if node.start == i and node.end == j:
+                return node.total
+
+            mid = (node.start + node.end) // 2
+
             if j <= mid:
-                return rangeSum(root.left, i, j)
+                return helper(node.left, i, j)
             elif i >= mid + 1:
-                return rangeSum(root.right, i, j)
+                return helper(node.right, i, j)
             else:
-                return rangeSum(root.left, i, mid) + rangeSum(root.right, mid+1, j)
-        
-        return rangeSum(self.root, i, j)
+                return helper(node.left, i, mid) + helper(node.right, mid+1, j)
+
+        return helper(self.root, i, j)
 
 # Your NumArray object will be instantiated and called as such:
 # obj = NumArray(nums)
