@@ -12,29 +12,33 @@ class Solution:
         :type k: int
         :rtype: int
         """
+        
+        # Create directed graph using parents
         def dfs(graph, node, parent):
             if node:
                 if node not in graph:
                     graph[node] = []
                 if parent not in graph:
                     graph[parent] = []
-
-                graph[node].append(parent)
                 graph[parent].append(node)
+                graph[node].append(parent)
                 dfs(graph, node.left, node)
                 dfs(graph, node.right, node)
-        
+                
         graph = {}
         dfs(graph, root, None)
         
-        visited = set()
+        # BFS
         queue = []
+        visited = set() # set of visited node objects
         
+        # Find nodes with K
         for node, val in graph.items():
             if node and node.val == k:
-                visited.add(node)
                 queue.append(node)
+                visited.add(node)
         
+        # Add node to visited set, when adding to queue
         while queue:
             node = queue.pop(0)
             if node:
