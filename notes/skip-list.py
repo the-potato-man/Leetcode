@@ -30,9 +30,6 @@ class SkipList:
                 return node 
 
         return None
-    
-    def randomHeight(self):
-        return random.randint(1, 10)
 
     def insert(self, elem):
         node = Node(elem, self.randomHeight())
@@ -51,4 +48,8 @@ class SkipList:
         if node:
             for i in range(len(node.next)):
                 update.next[i] = node.next[i]
+
+    def randomHeight(self):
+        # Random Distribution
+        return random.randint(1, 100)
      
