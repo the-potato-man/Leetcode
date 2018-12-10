@@ -5,6 +5,9 @@ https://github.com/kradio3/google-interview-university
 
 http://juliachencoding.blogspot.com/2016/04/skip-list.html
 
+https://www.geeksforgeeks.org/amazon-interview-preparation/
+https://www.geeksforgeeks.org/amazon-interview-experience-set-262-for-sde1/
+
 Some leetcode questions to work on first:
 1. reverse half linked list
 2. priority queue
