@@ -14,14 +14,20 @@ class Solution(object):
         def helper(root, count, res):
             if not root:
                 return '#'
+            
             val = str(root.val)
-            serial = val + ',' + helper(root.left, count, res) + ',' + helper(root.right, count, res)
+            leftVal = helper(root.left, count, res)
+            rightVal = helper(root.right, count, res)
+            
+            serial = val + ',' + leftVal + ',' + rightVal
             if serial in count:
                 count[serial] += 1
             else:
                 count[serial] = 1
+                
             if count[serial] == 2:
                 res.append(root)
+                
             return serial
         
         count = {}
