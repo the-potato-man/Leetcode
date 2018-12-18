@@ -1,4 +1,4 @@
-class Node():
+class Node:
     def __init__(self, start, end):
         self.start = start
         self.end = end
@@ -7,7 +7,6 @@ class Node():
         self.total = 0
 
 class NumMatrix:
-
     def __init__(self, matrix):
         """
         :type matrix: List[List[int]]
