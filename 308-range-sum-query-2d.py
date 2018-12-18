@@ -32,7 +32,6 @@ class NumMatrix:
         self.rootList = [None] * self.numRow
         for i in range(self.numRow):
             self.rootList[i] = buildTree(matrix[i], 0, self.numCol - 1)
-            print(self.rootList[i].total)
 
     def update(self, row, col, val):
         """
