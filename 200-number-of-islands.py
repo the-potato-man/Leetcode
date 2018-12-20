@@ -75,14 +75,9 @@ class Solution(object):
             else:
                 return
             
-            r1, c1 = row + 1, col
-            r2, c2 = row - 1, col
-            r3, c3 = row, col + 1
-            r4, c4 = row, col - 1
-            dfs(grid, r1, c1)
-            dfs(grid, r2, c2)
-            dfs(grid, r3, c3)
-            dfs(grid, r4, c4)
+            directions = [(1,0), (-1,0), (0,1),(0,-1)]
+            for r, c in directions:
+                dfs(grid, row + r, col + c)
                            
         for r in range(numRows):
             for c in range(numCols):
