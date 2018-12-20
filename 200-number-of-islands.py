@@ -34,15 +34,12 @@ class Solution(object):
                 row = int(row)
                 col = int(col)
                 grid[row][col] = '0'
-                r1, c1 = row + 1, col
-                r2, c2 = row - 1, col
-                r3, c3 = row, col + 1
-                r4, c4 = row, col - 1
-                if isValid(grid, r1, c1): stack.append((r1, c1))
-                if isValid(grid, r2, c2): stack.append((r2, c2))
-                if isValid(grid, r3, c3): stack.append((r3, c3))
-                if isValid(grid, r4, c4): stack.append((r4, c4))
-                    
+                
+                directions = [(1,0), (-1,0), (0,1),(0,-1)]
+                for r, c in directions:
+                    tempR, tempC = row + r, col + c
+                    if isValid(grid, tempR, tempC): stack.append((tempR, tempC))
+                        
             return islandFound
                            
         for r in range(numRows):
