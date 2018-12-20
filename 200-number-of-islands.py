@@ -35,7 +35,7 @@ class Solution(object):
                 col = int(col)
                 grid[row][col] = '0'
                 
-                directions = [(1,0), (-1,0), (0,1),(0,-1)]
+                directions = [(1,0), (-1,0), (0,1), (0,-1)]
                 for r, c in directions:
                     tempR, tempC = row + r, col + c
                     if isValid(grid, tempR, tempC): stack.append((tempR, tempC))
@@ -72,7 +72,7 @@ class Solution(object):
             else:
                 return
             
-            directions = [(1,0), (-1,0), (0,1),(0,-1)]
+            directions = [(1,0), (-1,0), (0,1), (0,-1)]
             for r, c in directions:
                 dfs(grid, row + r, col + c)
                            
