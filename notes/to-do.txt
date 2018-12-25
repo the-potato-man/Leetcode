@@ -72,8 +72,6 @@ assume that a few rows and all columns can be read in, how to verify?
 
 TODO: Winter Vacation
 
-127. Word Ladder
-567. Permutation in String
 173. Binary Search Tree Iterator
 706. Design HashMap
 Implement Min Heap
@@ -98,3 +96,8 @@ according to the requirements of the topic . Of course, each question has a diff
  everyone should have a good understanding. If there is no corresponding preparation, it is a problem that is easy to be embarrassed when interviewing . 
  Permutation input is not repeated: Permutations, CC150 9.5, PIE Chapter7 Permutations of a String input has duplicates, output cannot be repeated: 
  Permutations II Next Permutation: Classic algorithm, back
+
+ 460. LFU Cache
+ 289. Game of Life
+ 212. Word Search II
+
