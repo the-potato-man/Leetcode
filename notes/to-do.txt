@@ -81,23 +81,11 @@ Implement Min Heap
 https://instant.1point3acres.com/thread/91694
 
 
-Remove Duplicates from Sorted Array & II Remove Duplicates from Sorted List & II Remove Element Remove Nth Node From End of List Reverse Linked Llist II 
-Rotate List Substring with Concatenation of All Words Swap Nodes in Pairs 2. Two pointers go from the middle to the bottom: 
-The general interview appears in the case of a single linked list, so this type of question is mainly the array question. 3Sum 3Sum 
-Closest 4Sum Container With Most Water Sort Colors Trapping Rain Water Two Sum Binary search (will discuss it in a separate section) 
-3. Two pointers control two different arrays or linked lists: generally appear on topics related to merge. Add Binary Add Two Numbers Merge Sorted Array
 
-Merge Two Sorted Lists Multiply Strings Partition List Peking 2 interview questions summary (3) - Permutation and Combination basic questions, but very important. 
-It’s no surprise that you encountered any questions during the interview. PIE, CC150 and Leetcode all contain such questions. It is necessary to cook these questions. 
-Basically, the solution to this type of problem is DFS. The general framework of the program is very similar, except that the code is slightly modified 
-according to the requirements of the topic . Of course, each question has a different solution, but you should unify the solution to this type of problem according to your own preferences .
- Familiar with such topics, the understanding of DFS (will be discussed in a separate section) will be very profound. Basically, the general DFS topic should be no problem. 
- Whether it is arranging or combining, there is a variant of this type of problem that requires no repeated output. PIE and CC150 did not mention the corresponding solution, 
- everyone should have a good understanding. If there is no corresponding preparation, it is a problem that is easy to be embarrassed when interviewing . 
- Permutation input is not repeated: Permutations, CC150 9.5, PIE Chapter7 Permutations of a String input has duplicates, output cannot be repeated: 
- Permutations II Next Permutation: Classic algorithm, back
-
- 460. LFU Cache
- 289. Game of Life
- 212. Word Search II
+460. LFU Cache
+289. Game of Life
+212. Word Search II
+399. Evaluate Division
+https://www.geeksforgeeks.org/find-the-number-of-islands-set-2-using-disjoint-set/
+Union Find
 
