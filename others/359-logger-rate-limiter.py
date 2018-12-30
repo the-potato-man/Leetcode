@@ -1,3 +1,5 @@
+# This solution is inefficient according to leetcode
+
 class Logger:
 
     def __init__(self):
