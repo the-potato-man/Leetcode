@@ -1,5 +1,3 @@
-# This solution is inefficient according to leetcode
-
 class Solution:
     def lengthOfLongestSubstringKDistinct(self, s, k):
         """
