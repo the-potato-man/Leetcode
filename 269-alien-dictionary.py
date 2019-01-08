@@ -72,7 +72,7 @@ class Solution(object):
                         if c2 not in graph[c1]:
                             graph[c1].add(c2)
                             inDegree[c2] += 1
-                        break # test removing this?
+                        break
         
         def topologialSort(graph, inDegree):
             queue = []
