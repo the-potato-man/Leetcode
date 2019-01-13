@@ -30,7 +30,7 @@ class Solution:
                 heapq.heapify(pq)
             else:                   # if at start of the building
                 heapq.heappush(pq, (point.height, -point.height))
-            if pq and currHeight != pq[0][1]:
+            if pq and currHeight != pq[0][1]: # rank, height = pq[0][1]
                 currHeight = pq[0][1]
                 res.append([point.x, currHeight])
         return res
