@@ -24,17 +24,17 @@ class Solution:
             curr = 0
             leftSum = float('-inf')
             for i in range(m, l-1, -1): 
-                curr += arr[i] 
-                if curr > leftSum: leftSum = curr 
+                curr += arr[i]
+                leftSum = max(leftSum, curr)
 
             # Right of mid 
             curr = 0
             rightSum = float('-inf')
             for i in range(m+1, r+1): 
                 curr += arr[i] 
-                if curr > rightSum: rightSum = curr 
+                rightSum = max(rightSum, curr)
                     
-            return leftSum + rightSum
+            return leftSum + rightSum; 
 
         def maxSubArraySum(arr, l, r): 
             if (l == r) : return arr[l] 
