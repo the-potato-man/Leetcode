@@ -34,7 +34,7 @@ class Solution:
                 curr += arr[i] 
                 if curr > rightSum: rightSum = curr 
                     
-            return leftSum + rightSum; 
+            return leftSum + rightSum
 
         def maxSubArraySum(arr, l, r): 
             if (l == r) : return arr[l] 
