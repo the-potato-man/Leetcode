@@ -1,3 +1,5 @@
+# https://leetcode.com/problems/the-skyline-problem/discuss/197959/Java-Heap-with-Explanations
+
 import heapq
 
 class Point:
@@ -5,6 +7,7 @@ class Point:
         self.x = x
         self.height = height
         # Negative heights are building starts, positive are building ends
+        # Easier than have isStart bool, for writing comparator funct
 
 class Solution:
     def getSkyline(self, buildings):
@@ -22,7 +25,7 @@ class Solution:
         points.sort(key=lambda point: (point.x, point.height))
         
         res = []
-        pq = [(0,0)]
+        pq = [(0,0)] # Handles case when there are no buildings
         currHeight = 0
         for point in points:
             if point.height > 0:    # if at end of building
