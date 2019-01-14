@@ -37,7 +37,7 @@ class Solution:
             return leftSum + rightSum; 
 
         def maxSubArraySum(arr, l, r): 
-            if (l == r) : return arr[l] 
+            if (l == r): return arr[l] 
             m = (l + r) // 2
             return max(maxSubArraySum(arr, l, m), 
                        maxSubArraySum(arr, m+1, r), 
