@@ -14,14 +14,11 @@ def sortKSortedArray(nums, k):
     
     res = []
     for i in range(k+2, n):
-        if nums[i] > pq[0]:
-            heapq.heappush(pq, nums[i])
-        temp = heapq.heappop(pq)
-        res.append(temp)
+        heapq.heappush(pq, nums[i])
+        res.append(heapq.heappop(pq))
     
     while pq:
-        temp = heapq.heappop(pq)
-        res.append(temp) 
+        res.append(heapq.heappop(pq)) 
 
     return res
 
