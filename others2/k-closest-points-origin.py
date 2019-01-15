@@ -28,3 +28,11 @@ def ClosestXdestinations(numDestinations, allLocations, numDeliveries):
         rank, dist, x, y = heapq.heappop(pq)
         res.append((x, y, dist))
     return res
+
+def test():
+    allLocations = [[3,6], [2,4], [5,3], [2,7], [1,8], [7,9]]
+    numDestinations = 6
+    numDeliveries = 3
+    print(ClosestXdestinations(numDestinations, allLocations, numDeliveries))
+
+test()
