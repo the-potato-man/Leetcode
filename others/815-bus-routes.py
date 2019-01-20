@@ -1,3 +1,5 @@
+import collections
+
 class Solution:
     def numBusesToDestination(self, routes, S, T):
         """
