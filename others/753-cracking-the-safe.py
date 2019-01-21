@@ -15,5 +15,5 @@ class Solution(object):
                     dfs(nei[1:])
                     ans.append(x)
 
-        dfs("0" * (n-1))
-        return "".join(ans) + "0" * (n-1)
+        dfs('0' * (n-1))
+        return '0' * (n-1) + (''.join(ans))[::-1]
