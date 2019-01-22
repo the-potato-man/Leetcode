@@ -34,8 +34,13 @@ class Solution:
         return results
 
 
-
-    # Possible Union Find Solution, Not Optimal
+    '''
+    class Node:
+        def __init__(self, label, val):
+            self.label = label
+            self.val = val
+    '''
+    # Possible Union Find Solution
     def calcEquationUnionFind(self, equations, values, queries):
         """
         :type equations: List[List[str]]
