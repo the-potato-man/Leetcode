@@ -44,7 +44,7 @@ def findUrlAddressAccesses(urlList):
     return res
 
 def main():
-    urlList = [['google.com', 20], ['mail.google.com', 10]]
+    urlList = [['google.com', 20], ['mail.google.com', 10], ['contacts.google.com', 40]]
     sol = findUrlAddressAccesses(urlList)
     print(sol)
 
