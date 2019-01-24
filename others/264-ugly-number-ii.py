@@ -1,5 +1,24 @@
+import heapq
 class Solution(object):
     def nthUglyNumber(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        primes = [2,3,5]
+        nums = [2,3,5]
+        heapq.heapify(nums)
+        
+        p = 1
+        for i in range(n-1):
+            p = heapq.heappop(nums)
+            for prime in primes:
+                heapq.heappush(nums, p * prime)
+                # Skipping over calculate repeats, based on order of primes
+                if p % prime == 0: break
+        return p
+    
+    def nthUglyNumberIterative(self, n):
         """
         :type n: int
         :rtype: int
