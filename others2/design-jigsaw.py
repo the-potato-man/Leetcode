@@ -30,9 +30,9 @@ class Puzzle:
         self.solution = solution
 
     '''
-    Iterate through all edges, adding to inners, outers, flats
-    Add corner piece to solution
+    Iterate through all edges in given pieces, adding to inners, outers, flats
     Add non-flat edges of corner pieces to exposed edges
+    Add one corner piece to any corner in self.solution
     '''
     self.inners = []
     self.outers = []
