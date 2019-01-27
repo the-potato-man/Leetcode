@@ -1,0 +1,55 @@
+Core Features
+1. Tweeting
+2. Timeline
+    - User
+    - Home
+3. Following
+
+Naive solution
+- Use relaitonal db, User table & Tweet table
+
+User table (1-many relationship)
+Id, name
+
+Tweet table
+Id, content, userId
+
+
+Solution
+
+Characteristics, what to optimize for?
+Read heavy, Care about speed for consistency
+
+Client -> Load balancer
+Precompute home timeline of everyone you follow, store in redis, based on frequency
+3 redis tables
+User bob: 
+Tweet id, sender
+
+what happens when bob accesses timeline?
+brwoser Client -> load balancer -> multiple servers -> cache / db
+ GET request                                        Redis cluster, fastest one populates bobs timeline
+
+
+
+ Other solution:
+
+ Redis and DB
+ Tables: Users , Tweets, Follower
+
+ Users -> Tweets
+    |
+    \/
+  Follower
+
+Redis: strings, lists, sets, sorted set, hashes
+
+<user_id>-Tweets    redis list [1,2,3]
+<user_id>-followerss [1,2,3]
+
+
+Caching for a user timeline 
+user_id-user_tweets" [1,2,3]
+t_id-tweet: "hey!!!"
+
+
