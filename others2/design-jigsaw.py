@@ -1,4 +1,20 @@
-# http://k2code.blogspot.com/2014/03/implement-jigsaw-puzzle.html
+'''
+http://k2code.blogspot.com/2014/03/implement-jigsaw-puzzle.html
+
+First you need a "Piece" class to represent one piece of a puzzle. 
+Each piece has four sides, each one with a unique outline which will only connect to one other piece.
+
+Edge sides have an "edge" outline. Each side also has a piece id attribute called "adjacent" 
+to store the value of the piece it connects to. 
+Piece provides a "rotate" method which turns the piece 90, 180, or 270 degrees.
+
+The "Jigsaw" class has a number of pieces in the puzzle and a container of pieces. 
+The "Solve" method uses a map to store the association of edges to pieces. 
+It iterates through the pieces and for each edge, looks to see if its compliment is in the map. 
+If so, it rotates the new piece to the correct orientation and sets the adjacent fields in the two edges to point at each other. 
+If not, it adds the edge to the map. With one pass through the pieces, 
+it should have all the pieces in the correct orientation and connected to all of the adjacent pieces.
+'''
 
 class Edge:
     def __init__(self, id, edgeType, parentPiece):
