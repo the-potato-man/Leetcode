@@ -25,6 +25,7 @@ class Solution:
         points.sort(key=lambda point: (point.x, point.height))
         
         res = []
+        # pq = max heap
         pq = [(0,0)] # Handles case when there are no buildings
         currHeight = 0
         for point in points:
