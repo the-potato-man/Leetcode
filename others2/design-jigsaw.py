@@ -28,23 +28,6 @@ class Puzzle:
         self.pieces = pieces
         # 2-d matrix, initially empty
         self.solution = solution
-    
-    # Remove piece from piecesList, add to board
-    def placePieceOnBoard(self, pid, r1, c1)    
-    # Remove piece from board, insert back into piecesList
-    def removePieceFromBoard(self, r1, c1):
-    # Move a piece on the board
-    def movePiece(self, r1, c1, r2, c2)
-
-    # If a piece is on the board, checks if matches the surrounding pieces
-    # Checks if flat edge, if on edge of board
-    # Returns False if not a match, or a piece is not in that position
-    def matchesLeft(self)
-    def matchesRight(self)
-    def matchesTop(self)
-    def matchesBottom(self)
-    # For each piece in board, compares against surrounding pieces
-    def isSolved(self)
 
     '''
     Iterate through all edges, adding to inners, outers, flats
@@ -66,3 +49,22 @@ class Puzzle:
                         # rotate and add piece, associated with edge2, to solution
                         # check which edges of edge2 are exposed and add to self.exposedEdges
                 # Do the same thing, swapping inner and outer
+
+    # For User actions
+
+    # Remove piece from piecesList, add to board
+    def placePieceOnBoard(self, pid, r1, c1)    
+    # Remove piece from board, insert back into piecesList
+    def removePieceFromBoard(self, r1, c1):
+    # Move a piece on the board
+    def movePiece(self, r1, c1, r2, c2)
+
+    # If a piece is on the board, checks if matches the surrounding pieces
+    # Checks if flat edge, if on edge of board
+    # Returns False if not a match, or a piece is not in that position
+    def matchesLeft(self)
+    def matchesRight(self)
+    def matchesTop(self)
+    def matchesBottom(self)
+    # For each piece in board, compares against surrounding pieces
+    def isSolved(self)
