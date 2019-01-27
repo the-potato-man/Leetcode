@@ -12,7 +12,7 @@ class Square:
 class Board:
     def __init__(self):
         self.sqaureset = [][]
-        self.pieceset = [][]
+        self.pieceset = set()
     
     def clone()
 
