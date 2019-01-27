@@ -1,0 +1,5 @@
+Design an ordered task list system with a server and multiple clients. 
+Implementation functions: (1). insert into the task list (2). remove from the list (3). 
+move one task to a different place in the list, as soon as possible. 
+A brief description of the API, how to handle the conflicts between different users. 
+i.e. What happens when a client in the remove while another client moves the same task?
