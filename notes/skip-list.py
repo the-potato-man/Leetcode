@@ -12,6 +12,7 @@ class SkipList:
         self.head = Node()
 
     def updateList(self, elem):
+        # Index 0 has the smallest jumps
         update = [None] * len(self.head.next)
         node = self.head
         for i in range(len(self.head.next) - 1, -1, -1):
