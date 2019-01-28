@@ -3,3 +3,56 @@ Implementation functions: (1). insert into the task list (2). remove from the li
 move one task to a different place in the list, as soon as possible. 
 A brief description of the API, how to handle the conflicts between different users. 
 i.e. What happens when a client in the remove while another client moves the same task?
+
+Use Cases:
+(1). insert into the task list
+(2). remove from the list 
+(3). move one task to a different place
+
+Restful API, Web app, browser clients
+
+Linked list of nodes
+Hash table, id -> node
+
+O(1) delete, use case #2
+
+user case #1, usually add to bottom of task list
+head and tail pointer
+
+API
+PUT request
+id_a, id_b
+
+body: new task 
+
+hash -> node of id_a
+check if id_b is the next node (check up to date)
+if valid, insert node between nodes a and b, also add to dict
+
+else return error status for PUT
+
+
+Multiple Clients
+each does GET request, to get the full list
+get request checks how many users used list in past X period, and scale up the refresh rate of every client, depending on number of users
+click on item, depending on how its represented in the UI, whatever ds, each to get ids before and after
+GET request first, to validate, before POST, DELETE, PUT
+2 queues, 1 only for GETs, 1 for everything else
+(1). insert into the task list
+POST
+create a unique id, have some sort of counter
+id_a, id_b
+(2). remove from the list 
+DELETE (don’t usually use bodies…)
+id_a, id_b
+(3). move one task to a different place
+PUT
+changing id_b
+id_a, id_b, id_c -> id_d, id_e
+
+Server
+validate id_a, id_b order
+
+
+to handle conflicts
+queue of request
