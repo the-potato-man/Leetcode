@@ -1,3 +1,13 @@
+
+'''
+Given a string, find the length of the longest substring T that contains at most k distinct characters.
+
+Example 1:
+
+Input: s = "eceba", k = 2
+Output: 3
+Explanation: T is "ece" which its length is 3.
+'''
 class Solution:
     def lengthOfLongestSubstringKDistinct(self, s, k):
         """
