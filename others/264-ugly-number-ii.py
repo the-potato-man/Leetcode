@@ -5,7 +5,7 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
-        primes = [2,3,5]
+        primes = [5,3,2]
         nums = [2,3,5]
         heapq.heapify(nums)
         
