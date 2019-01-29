@@ -55,6 +55,7 @@ class Solution:
         c2 = [-1, -1]
         parent = [-1] * (len(edges) + 1)
 
+        # Find candidates for cycle, and ignore during checking for parents
         for a, b in edges:
             if parent[b] != -1:
                 c1 = [parent[b], b]
@@ -69,5 +70,6 @@ class Solution:
             if not dsu.union(a, b):
                 return [a, b]
         
+        # Check remaining cycle candidates in order
         if not dsu.union(c1[0], c1[1]): return c1
         return c2
