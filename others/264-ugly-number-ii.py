@@ -1,3 +1,5 @@
+# https://medium.com/@rachit.slt/leetcode-ugly-number-a7af445ab14c
+
 import heapq
 class Solution(object):
     def nthUglyNumber(self, n):
