@@ -18,17 +18,8 @@ Some leetcode questions to work on first:
 8. course schedule
 
 
-
-
 https://leetcode.com/discuss/interview-question/124626/Google-onsite-interview-questions/?fbclid=IwAR1b0WUuIfkU5xavuY80DWrWru72JaQV5Gnlo-1OYnZyWFBXuoe9DGkRf3o
 
-Given a contiguous sequence of numbers in which each number repeats thrice, there is exactly one missing number. Find the missing number.
-eg: 11122333 : Missing number 2
-11122233344455666 Missing number 5
-
-Given a compressed string in which a number followed by [] indicate how many times those characters occur, decompress the string
-Eg. : a3[b2[c1[d]]]e will be decompressed as abcdcdbcdcdbcdcde.
-Assume the string is well formed and number will always be followed by a [].
 
 Given a tree representation of a html parsed output, wherein every block is a node in the tree, find if two html docs contain the same text.
 
@@ -40,19 +31,12 @@ struct Node {
 For eg, consider the two documents
 
 sample
-
 Hello world
-
 will be represented as Node1: value sample, children: isMetadata: true Node2: value: children:
-
 isMetadata: true Node3: value:
-
 : children: Hello world isMetadata: true Node4: value Hello world isMetadata: false
-
 and a second document
-
 Hello world
-
 and both documents are equivalent since they contain the same data.
 
 Note: the case of both documents fitting in memory is trivial, since it is just walking this tree list, consolidating data and comparing. 
@@ -76,16 +60,29 @@ TODO: Winter Vacation
 706. Design HashMap
 Implement Min Heap
 3. Longest Substring Without Repeating Characters
-
+212. Word Search II
 
 https://instant.1point3acres.com/thread/91694
 
 
 
-460. LFU Cache
-289. Game of Life
-212. Word Search II
-399. Evaluate Division
-https://www.geeksforgeeks.org/find-the-number-of-islands-set-2-using-disjoint-set/
-Union Find
 
+Amazon Frequency asked
+
+https://yidongzhang.gitbooks.io/-oa-1/content/fu-lu-1-ff1a-qi-ta-shou-ji-de-xiang-guan-ti-mu-he-bu-fen-da-an.html
+
+1.overlap rectangle
+2.window sum.1point3acres缃�
+3.k nearest point
+4.longest palindromic substring(lc 5)
+5.city connection(mst). 
+6.copy list with random pointer(lc 138)
+7.company tree
+8.high five
+9.order dependency http://www.lintcode.com/en/problem/course-schedule-ii/
+http://www.amethlex.com/archives/117
+search 2D matrix,Search a 2D Matrix II, Valid Parentheses, Merge Two Sorted Lists, Overlap Rectangle, Sliding Window Maximum, Gray Code, Rotate String, remove vowel, Find Optimal Weights (Close Two Sum), Reverse Second Half of Linked List,GCD, Same Tree, Subtree Check, K Closest Points
+http://www.amethlex.com/archives/139
+Two Sum, Window Sum, Tree Amplitude, Arithmetic Sequence, BST Minimum Path Sum, Day change, Insert Into Cycle Linked List, Linked List Cycle II, LRU Cache Count Miss, Round Robin
+http://www.amethlex.com/archives/150
+Rotate Matrix, Shortest Job First, maze,Four Integer,Copy List with Random Pointer, Order Dependency, Maximum Minimum Path, Minimum Spanning Tree, Maximum Subtree of Average, Five Scores, Longest Palindromic Substring
