@@ -44,7 +44,7 @@ class Solution:
         curr = 0
         quotient = 0
         
-        for i in range(32, -1, -1):
+        for i in range(31, -1, -1):
             if curr + (divisor << i) <= dividend:
                 curr += (divisor << i)
                 quotient += (1 << i)
