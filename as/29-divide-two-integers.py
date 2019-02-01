@@ -47,7 +47,7 @@ class Solution:
         for i in range(32, -1, -1):
             if curr + (divisor << i) <= dividend:
                 curr += (divisor << i)
-                quotient |= (1 << i)
+                quotient += (1 << i)
         
         quotient *= finalSign
 
