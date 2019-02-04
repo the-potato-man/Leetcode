@@ -86,3 +86,7 @@ http://www.amethlex.com/archives/139
 Two Sum, Window Sum, Tree Amplitude, Arithmetic Sequence, BST Minimum Path Sum, Day change, Insert Into Cycle Linked List, Linked List Cycle II, LRU Cache Count Miss, Round Robin
 http://www.amethlex.com/archives/150
 Rotate Matrix, Shortest Job First, maze,Four Integer,Copy List with Random Pointer, Order Dependency, Maximum Minimum Path, Minimum Spanning Tree, Maximum Subtree of Average, Five Scores, Longest Palindromic Substring
+
+
+Persistent Data Structures
+https://www.geeksforgeeks.org/persistent-data-structures/
