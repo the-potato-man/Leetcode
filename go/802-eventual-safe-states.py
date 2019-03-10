@@ -16,7 +16,33 @@ Input: graph = [[1,2],[2,3],[5],[0],[5],[],[]]
 Output: [2,4,5,6]
 '''
 
-class Solution(object):
+# https://leetcode.com/problems/find-eventual-safe-states/discuss/120019/Simple-dfs-python
+
+class Solution:
+    def eventualSafeNodes(self, graph):
+        """
+        :type graph: List[List[int]]
+        :rtype: List[int]
+        """
+        def dfs(graph, i, visited):                                         
+            for neigh in graph[i]:
+                if neigh in visited: return False
+                if neigh in res: continue
+                visited.add(neigh)
+                if not dfs(graph, neigh, visited): return False
+                visited.remove(neigh)
+            res.add(i)
+            return True
+        
+        res = set()
+        for i in range(len(graph)):
+            visited = set()
+            visited.add(i)
+            dfs(graph, i, visited)
+        return sorted(list(res))
+        
+
+# class Solution(object):
 #     def eventualSafeNodes(self, graph):
 #         """
 #         :type graph: List[List[int]]
@@ -49,20 +75,3 @@ class Solution(object):
 #             self.hasCycle = False
         
 #         return sol
-
-    def eventualSafeNodes(self, graph):        
-            def dfs(graph, i, visited):                                         
-                for j in graph[i]:
-                    if j in visited: return False
-                    if j in ans: continue # end early
-                    visited.add(j)                
-                    if not dfs(graph, j, visited): return False
-                    visited.remove(j)                                                                            
-                ans.add(i)     
-                return True                        
-            ans = set()
-            for i in range(len(graph)):            
-                visited = set([i])
-                dfs(graph, i, visited)        
-            return sorted(list(ans))
-
