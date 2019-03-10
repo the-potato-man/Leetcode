@@ -6,7 +6,7 @@ class TreeNode:
         self.right = None
 
 class Solution:
-    def verticalOrder(self, root: TreeNode) -> List[List[int]]:
+    def verticalOrder(self, root):
         col = {} # maps index to node
         queue = [(root, 0)]
         while queue:
