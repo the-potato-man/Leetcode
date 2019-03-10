@@ -1,3 +1,4 @@
+# Given a positive integer n, generate a square matrix filled with elements from 1 to n^2 in spiral order
 class Solution:
     def generateMatrix(self, n):
         """
