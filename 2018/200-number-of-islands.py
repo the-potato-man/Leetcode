@@ -55,27 +55,24 @@ class Solution(object):
         :type grid: List[List[str]]
         :rtype: int
         """
-        if not grid: return 0
-        numRows = len(grid)
-        numCols = len(grid[0])
-        
-        numIslands = 0
         
         def isValid(grid, row, col):
-            if row < 0 or col < 0 or row >= numRows or col >= numCols or grid[row][col] == '0':
-                return False
-            return True
+            return row >= 0 and col >= 0 and row < numRows and col < numCols and grid[row][col] != '0'
         
         def dfs(grid, row, col):   
-            if isValid(grid, row, col):
-                grid[row][col] = '0'
-            else:
+            if not isValid(grid, row, col):
                 return
             
+            grid[row][col] = '0'            
             directions = [(1,0), (-1,0), (0,1), (0,-1)]
             for r, c in directions:
                 dfs(grid, row + r, col + c)
-                           
+                
+        if not grid: return 0
+        numRows = len(grid)
+        numCols = len(grid[0])    
+        
+        numIslands = 0                           
         for r in range(numRows):
             for c in range(numCols):
                 if isValid(grid, r, c):
