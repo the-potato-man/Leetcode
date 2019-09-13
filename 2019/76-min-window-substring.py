@@ -7,60 +7,52 @@ Input: S = "ADOBECODEBANC", T = "ABC"
 Output: "BANC"
 '''
 
-class Solution(object):
-    def minWindow(self, s, t):
-        """
-        :type s: str
-        :type t: str
-        :rtype: str
-        """
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:        
+        def incrementDict(c, dic):
+            if c in dic:
+                dic[c] += 1
+            else:
+                dic[c] = 1
+        
         if not t or not s:
             return ""
         
-        dictT = {}
+        dicT = {}
         for c in t:
-            if c in dictT:
-                dictT[c] += 1
-            else:
-                dictT[c] = 1
+            incrementDict(c, dicT)
         
         # Number of unique characters in t, which need to be present in the desired window
-        required = len(dictT)
-        
-        l = 0
-        r = 0
-        
+        requiredNum = len(dicT) 
         # How many unique characters in t are present in the current window
-        formed = 0
+        windowMatch = 0
         
         window = {}
-        ans = float("inf"), None, None
+        res = float("inf"), None, None
+        
+        l, r = 0, 0
         
         while r < len(s):
             c = s[r]
-            if c in window:
-                window[c] += 1
-            else:
-                window[c] = 1
+            incrementDict(c, window)
             
-            # If the frequency of the current character added equals to the desired count in t,
-            # then increment the formed count by 1            
-            if c in dictT and window[c] == dictT[c]:
-                formed += 1
-        
-            while l <= r and formed == required:
+            # If the frequency of the character added equals the desirted count in t, increment windowMatch
+            if c in dicT and window[c] == dicT[c]:
+                windowMatch += 1
+            
+            while l <= r and windowMatch == requiredNum:
                 c = s[l]
-                
-                # # Save the smallest window until now
-                if r - l + 1 < ans[0]:
-                    ans = (r - l + 1, l, r)
-                
+                # Save the smallest window until now
+                if r - l + 1 < res[0]:
+                    res = (r - l + 1, l, r)
+                    
                 window[c] -= 1
-                if c in dictT and window[c] < dictT[c]:
-                    formed -= 1
+                    
+                if c in dicT and window[c] < dicT[c]:
+                    windowMatch -= 1
+                    
+                l += 1                
                 
-                l += 1
-            
             r += 1
-            
-        return "" if ans[0] == float("inf") else s[ans[1] : ans[2] + 1]
+        
+        return "" if res[0] == float("inf") else s[res[1]: res[2] + 1]
