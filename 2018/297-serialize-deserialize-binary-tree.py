@@ -7,23 +7,26 @@
 
 class Codec:
 
-    # Preorder Traversal
     def serialize(self, root):
         """Encodes a tree to a single string.
         
         :type root: TreeNode
         :rtype: str
         """
-        def helper(root, string):
+        self.string = ''
+        
+        def helper(root):
             if not root:
-                string += 'None,'
+                self.string += 'None,'
             else:
-                string += str(root.val) + ','
-                string = helper(root.left, string)
-                string = helper(root.right, string)
+                self.string += str(root.val) + ','
+                helper(root.left)
+                helper(root.right)
             return string                
         
-        return helper(root, '')
+        helper(root)
+        return self.string
+        
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
@@ -42,7 +45,6 @@ class Codec:
         
         l = data.split(',')
         return helper(l)
-        
 
 # Your Codec object will be instantiated and called as such:
 # codec = Codec()
