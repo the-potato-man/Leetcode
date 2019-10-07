@@ -34,17 +34,19 @@ class Codec:
         :type data: str
         :rtype: TreeNode
         """
-        def helper(l):
-            val = l.pop(0)
+        self.nodes = data.split(',')
+        
+        def helper():
+            val = self.nodes.pop(0)
             if val == 'None':
                 return None
-            root = TreeNode(val)
-            root.left = helper(l)
-            root.right = helper(l)            
-            return root
+            else:
+                root = TreeNode(val)
+                root.left = helper()
+                root.right = helper()            
+                return root
         
-        l = data.split(',')
-        return helper(l)
+        return helper()
 
 # Your Codec object will be instantiated and called as such:
 # codec = Codec()
