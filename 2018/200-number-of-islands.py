@@ -12,23 +12,18 @@ class Solution(object):
         :type grid: List[List[str]]
         :rtype: int
         """
+        self.numIslands = 0
+        
         if not grid: return 0
         numRows = len(grid)
-        numCols = len(grid[0])
-        
-        numIslands = 0
-        
+        numCols = len(grid[0])        
+
         def isValid(grid, row, col):
-            if row < 0 or col < 0 or row >= numRows or col >= numCols or grid[row][col] == '0':
-                return False
-            return True
+            return row >= 0 and col >= 0 and row < numRows and col < numCols and grid[row][col] == '1'
         
-        def bfs(grid, row, col):   
-            islandFound = False
-            stack = []
-            if isValid(grid, row, col):
-                stack.append((row, col))
-                islandFound = True
+        def bfs(grid, row, col):
+            self.numIslands += 1
+            stack = [(row, col)]
             while stack:
                 (row, col) = stack.pop()
                 row = int(row)
@@ -38,17 +33,15 @@ class Solution(object):
                 directions = [(1,0), (-1,0), (0,1), (0,-1)]
                 for r, c in directions:
                     tempR, tempC = row + r, col + c
-                    if isValid(grid, tempR, tempC): stack.append((tempR, tempC))
-                        
-            return islandFound
-                           
+                    if isValid(grid, tempR, tempC):
+                        stack.append((tempR, tempC))
+
         for r in range(numRows):
             for c in range(numCols):
                 if isValid(grid, r, c):
-                    if bfs(grid, r, c):
-                        numIslands += 1
+                    bfs(grid, r, c)
             
-        return numIslands
+        return self.numIslands
     
     def numIslandsDFS(self, grid): # solved with DFS
         """
