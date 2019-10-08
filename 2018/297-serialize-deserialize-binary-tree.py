@@ -34,10 +34,10 @@ class Codec:
         :type data: str
         :rtype: TreeNode
         """
-        self.nodes = data.split(',')
+        self.tokens = data.split(',')
         
         def helper():
-            val = self.nodes.pop(0)
+            val = self.tokens.pop(0)
             if val == 'None':
                 return None
             else:
